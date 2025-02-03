@@ -1,0 +1,28 @@
+<h1> Guess the Number Game </h1>
+
+<input id="guess">
+<button onclick="Check()">Check</button>
+
+<p id="result"> You are Wrong/Correct</p>
+<h5>Your Guessed Count is </h5>
+<p id="count"> </p>
+
+
+<script>
+    var Count = 10
+    function Check() {
+        var guess = document.getElementById("guess").value
+
+        var random = Math.floor(Math.random() * 10) + 1
+        console.log(random)
+
+        if (guess == random) {
+            document.getElementById("result").textContent = "You are right"
+        }
+        else {
+            document.getElementById("result").textContent = "You are Wrong"
+            Count--
+        }
+        document.getElementById("count").textContent = Count
+    }
+</script>
