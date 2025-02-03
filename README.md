@@ -21,10 +21,6 @@ A simple number guessing game where the player has to guess a randomly generated
 4. If it's incorrect, you lose **1 point**.
 5. The game continues until your score reaches **0**.
 
-## 📷 Screenshot
-![Game Screenshot](https://via.placeholder.com/600x300?text=Guess+the+Number+Game)  
-*(Replace the placeholder URL with an actual screenshot of your game.)*
-
 ## 🛠️ Setup Instructions
 1. Clone this repository:
    ```sh
