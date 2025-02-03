@@ -1,28 +1,92 @@
-<h1> Guess the Number Game </h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<input id="guess">
-<button onclick="Check()">Check</button>
-
-<p id="result"> You are Wrong/Correct</p>
-<h5>Your Guessed Count is </h5>
-<p id="count"> </p>
-
-
-<script>
-    var Count = 10
-    function Check() {
-        var guess = document.getElementById("guess").value
-
-        var random = Math.floor(Math.random() * 10) + 1
-        console.log(random)
-
-        if (guess == random) {
-            document.getElementById("result").textContent = "You are right"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
         }
-        else {
-            document.getElementById("result").textContent = "You are Wrong"
-            Count--
+
+        h1 {
+            color: #333;
         }
-        document.getElementById("count").textContent = Count
-    }
-</script>
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            width: 80px;
+            text-align: center;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        h5 {
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Guess the Number Game</h1>
+
+    <input id="guess" type="number" min="1" max="10">
+    <button onclick="Check()">Check</button>
+
+    <p id="result">You are Wrong/Correct</p>
+    <h5 id="count">Your Score: 10</h5>
+
+    <script>
+        var Count = 10;
+        function Check() {
+            var guess = document.getElementById("guess").value;
+            var random = Math.floor(Math.random() * 10) + 1;
+            console.log(random);
+
+            if (guess == random) {
+                document.getElementById("result").textContent = "Right";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").textContent = "Wrong";
+                document.getElementById("result").style.color = "red";
+                Count--;
+            }
+            document.getElementById("count").textContent = "Your Score: " + Count;
+
+            if (Count === 0) {
+                alert("Game Over! Refresh to play again.");
+                document.getElementById("guess").disabled = true;
+                document.querySelector("button").disabled = true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
